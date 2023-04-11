@@ -1,0 +1,31 @@
+Debemos de eliminar el archivo 
+
+.babelrc.js
+
+Este nos permite cargar de manera eficiente todos los modulos de mui
+de esta forma carga bien y es al instante la actualización si no se
+usa se debe de esperar mucho tiempo. Adicional a otra configuración
+que podemos ver en:
+
+https://mui.com/material-ui/guides/minimizing-bundle-size/#development-environment).
+
+Pero para el testing nos marca error... para evirtarlo, lo eliminamos
+no es importante que la app este corriendo asi que no nos marcara error
+o tendriamos problema. Eliminandolo y ejecutando 'yarn test' podemos
+continuar sin problema.
+
+
+Contenido del archivo
+
+.babelrc.js
+
+const plugins = [
+    [
+      'babel-plugin-direct-import',
+      { modules: ['@mui/material', '@mui/icons-material'] },
+    ],
+  ];
+  
+export default { plugins };
+  
+

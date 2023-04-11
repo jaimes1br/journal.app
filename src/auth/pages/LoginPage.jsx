@@ -9,8 +9,8 @@ import { AuthLayout } from '../layout/AuthLayout';
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
 const formData = {
-  email: 'brandon@test.com',
-  password: 'Leonora789'
+  email: '',
+  password: ''
 }
 
 export const LoginPage = () => {
@@ -35,7 +35,7 @@ export const LoginPage = () => {
 
   return (
     <AuthLayout title='Login'>
-      <form onSubmit={ onSubmit } 
+      <form aria-label='form' onSubmit={ onSubmit } 
         className="animate__animated animate__fadeIn animate__faster">
         <Grid container>
           <Grid item xs={ 12 } sx={{mt: 2}}>
@@ -56,6 +56,9 @@ export const LoginPage = () => {
               placeholder="contraseña" 
               fullWidth
               name='password'
+              inputProps={{
+                'data-testid': 'password'
+              }}
               value={ password }
               onChange={ handleInputChage }
             />
@@ -69,6 +72,7 @@ export const LoginPage = () => {
           <Grid container spacing={ 2 } sx={{ mb: 2, mt: 1 }}>
             <Grid item xs={ 12 } sm={ 6 }>
               <Button 
+                aria-label='btnSubmit'
                 disabled = { isAuthenticating }
                 type='submit' 
                 variant='contained' 
@@ -78,6 +82,7 @@ export const LoginPage = () => {
             </Grid>
             <Grid item xs={ 12 } sm={ 6 }>
               <Button
+                aria-label='btnGoogle'
                 disabled = { isAuthenticating }
                 variant='contained' 
                 fullWidth 
